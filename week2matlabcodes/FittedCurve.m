@@ -1,19 +1,9 @@
 bits = randi([0 1],1,10000000);
 
-conv1to3_2 = package(bits,6,1);
-rep3_2 = package(bits,3,1);
 
-i = 1:20;
-i_2 = i/2;
+conv1to3_2 = test(bits,6,1,2000,20,40);
+rep3_2 = test(bits,3,1,2000,20,40);
 
-plot (i_2,conv1to3_2,'*','DisplayName','1 to 3 Convolution');
-hold on;
-plot (i_2,rep3_2,'*','DisplayName','Repetition by 1/3');
-xlabel('SNR');
-ylabel('Package Error Rate');
-legend;
-title('Package Error Rate for QPSK with different FEC');
-hold off;
 
 [xData, yData] = prepareCurveData( i_2, conv1to3_2 );
 [xData2, yData2] = prepareCurveData( i_2, rep3_2 );
